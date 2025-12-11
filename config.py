@@ -22,14 +22,14 @@ MAX_ID = int(os.getenv("MAX_ID", 1500))
 VIDEOS_RANGE = list(range(MIN_ID, MAX_ID + 1))
 
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "7668133494"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "7328629001"))
 
 #Port
-PORT = os.environ.get("PORT", "8065")
+PORT = os.environ.get("PORT", "3435")
 DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://obito:umaid2008@cluster0.engyc.mongodb.net/?retryWrites=true&w=majority")
-DB_NAME = os.environ.get("DATABASE_NAME", "sara")
+DB_NAME = os.environ.get("DATABASE_NAME", "tsara")
 
-IS_VERIFY = os.environ.get("IS_VERIFY", "True")
+IS_VERIFY = os.environ.get("IS_VERIFY", "false")
 
 TUT_VID = os.environ.get("TUT_VID", "https://t.me/delight_link/2")
 
@@ -77,13 +77,13 @@ SCREENSHOT_URL = os.environ.get("SCREENSHOT_URL", f"t.me/rohit_1888")
 #7 Days
 PRICE1 = os.environ.get("PRICE1", "0 rs")
 #1 Month
-PRICE2 = os.environ.get("PRICE2", "150 rs")
+PRICE2 = os.environ.get("PRICE2", "60 rs")
 #3 Month
-PRICE3 = os.environ.get("PRICE3", "280 rs")
+PRICE3 = os.environ.get("PRICE3", "150 rs")
 #6 Month
-PRICE4 = os.environ.get("PRICE4", "520 rs")
+PRICE4 = os.environ.get("PRICE4", "280 rs")
 #1 Year
-PRICE5 = os.environ.get("PRICE5", "999 rs")
+PRICE5 = os.environ.get("PRICE5", "550 rs")
 #===================(END)========================#
 
 #==========================(REFERRAL SYSTEM)====================#
@@ -116,13 +116,6 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
-
-
-
-
-
-
-
 
 
 
