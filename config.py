@@ -22,12 +22,13 @@ MAX_ID = int(os.getenv("MAX_ID", 150))
 VIDEOS_RANGE = list(range(MIN_ID, MAX_ID + 1))
 
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "8454765899"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "7955996369"))
 
 #Port
 PORT = os.environ.get("PORT", "3435")
 DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://obito:umaid2008@cluster0.engyc.mongodb.net/?retryWrites=true&w=majority")
-DB_NAME = os.environ.get("DATABASE_NAME", "66")
+
+DB_NAME = os.environ.get("DATABASE_NAME", "orion")
 
 IS_VERIFY = os.environ.get("IS_VERIFY", "false")
 
