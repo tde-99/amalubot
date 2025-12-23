@@ -619,15 +619,22 @@ class Rohit:
     # **Update Free Usage Count**
     async def update_free_usage(self, user_id):
         try:
-        # Check if user exists in DB
+            # Check if user exists in DB
             data = await self.free_data.find_one({"user_id": user_id})
 
+            current_time = time.time()
+
             if not data:
-            # If user doesn't exist, create new entry with count = 1
-                await self.free_data.insert_one({"user_id": user_id, "count": 1, "last_reset": time.time()})
+                # If user doesn't exist, create new entry with count = 1 and set last_reset
+                await self.free_data.insert_one({"user_id": user_id, "count": 1, "last_reset": current_time})
             else:
-            # Increment count properly
-                await self.free_data.update_one({"user_id": user_id}, {"$inc": {"count": 1}})
+                # Reset count if more than 24 hours have passed since last reset
+                last_reset = data.get("last_reset", 0)
+                if current_time - last_reset > 86400:  # 24 hours
+                    await self.free_data.update_one({"user_id": user_id}, {"$set": {"count": 1, "last_reset": current_time}})
+                else:
+                    # Increment count properly
+                    await self.free_data.update_one({"user_id": user_id}, {"$inc": {"count": 1}})
         except Exception as e:
             logging.error(f"Error incrementing free usage for user {user_id}: {e}")
 
@@ -637,10 +644,43 @@ class Rohit:
             data = await self.free_data.find_one({"user_id": user_id})
             if data and (time.time() - data.get("last_reset", 0) > 86400):
                 await self.free_data.update_one(
-                {"user_id": user_id}, {"$set": {"count": 0, "last_reset": time.time()}}
+                    {"user_id": user_id}, {"$set": {"count": 0, "last_reset": time.time()}}
                 )
         except Exception as e:
             logging.error(f"Error resetting free usage for user {user_id}: {e}")
+
+    async def reset_all_free_usage(self):
+        """Reset free usage counts for all users (run daily)."""
+        try:
+            current_time = time.time()
+            await self.free_data.update_many({"user_id": {"$exists": True}}, {"$set": {"count": 0, "last_reset": current_time}})
+            logging.info("All free usage counts reset.")
+        except Exception as e:
+            logging.error(f"Error resetting all free usage: {e}")
+
+    # Spam notification flags to avoid duplicate scheduling
+    async def set_spam_notify_flag(self, user_id: int, action_type: str):
+        try:
+            key = f"{user_id}_{action_type}"
+            await self.spam_protection_data.update_one({"_id": key}, {"$set": {"notify_scheduled": True}}, upsert=True)
+        except Exception as e:
+            logging.error(f"Error setting spam notify flag: {e}")
+
+    async def clear_spam_notify_flag(self, user_id: int, action_type: str):
+        try:
+            key = f"{user_id}_{action_type}"
+            await self.spam_protection_data.update_one({"_id": key}, {"$unset": {"notify_scheduled": ""}})
+        except Exception as e:
+            logging.error(f"Error clearing spam notify flag: {e}")
+
+    async def get_spam_notify_flag(self, user_id: int, action_type: str) -> bool:
+        try:
+            key = f"{user_id}_{action_type}"
+            data = await self.spam_protection_data.find_one({"_id": key})
+            return bool(data and data.get("notify_scheduled", False))
+        except Exception as e:
+            logging.error(f"Error getting spam notify flag: {e}")
+            return False
 
     # **Update Verification Time**
     async def update_verification_time(self, user_id):
@@ -682,7 +722,8 @@ class Rohit:
     # 🎬 Video Management
     # ---------------------------
     async def video_exists(self, file_id: str):
-        return await self.videos_collection.find_one({"file_id": file_id})
+        # Check existence by file_id or file_unique_id
+        return await self.videos_collection.find_one({"$or": [{"file_id": file_id}, {"file_unique_id": file_id}]})
 
     async def insert_videos(self, video_list: list):
         if video_list:
@@ -696,7 +737,8 @@ class Rohit:
     # 📸 Photo Management
     # ---------------------------
     async def photo_exists(self, file_id: str):
-        return await self.photos_collection.find_one({"file_id": file_id})
+        # Check existence by file_id or file_unique_id
+        return await self.photos_collection.find_one({"$or": [{"file_id": file_id}, {"file_unique_id": file_id}]})
 
     async def insert_photos(self, photo_list: list):
         if photo_list:
