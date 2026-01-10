@@ -66,7 +66,7 @@ PREMIUM_BUTTON2 = reply_markup=InlineKeyboardMarkup(
 OWNER_TAG = os.environ.get("OWNER_TAG", "Boby_Vip")
 
 #UPI ID
-UPI_ID = os.environ.get("UPI_ID", "rohit23pnb@axl")
+UPI_ID = os.environ.get("UPI_ID", "nidhin.l@ptaxis")
 
 #UPI QR CODE IMAGE
 UPI_IMAGE_URL = os.environ.get("UPI_IMAGE_URL", "https://t.me/paymentbot6/2")
