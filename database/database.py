@@ -289,8 +289,8 @@ class Rohit:
     async def get_channel_button_link(self):
         data = await self.channel_button_link_data.find_one({})
         if data:
-            return data.get('button_name'KL_PAIDget('button_link')
-        return ' Channel', 'https://t.me/Javpostr'
+            return data.get('button_name'), data.get('button_link')
+        return ' Channel', 'https://t.me/KL_paid'
     
     async def get_channel_button_links(self):
         """Get both channel buttons (button1 and button2)"""
@@ -898,4 +898,5 @@ class Rohit:
 db = Rohit(DB_URI, DB_NAME)
 
         
+
 
