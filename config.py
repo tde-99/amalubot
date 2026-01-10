@@ -17,12 +17,12 @@ API_HASH = os.environ.get("API_HASH", "b354710ab18b84e00b65c62ba7a9c043")
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002568581749"))
 
 MIN_ID = int(os.getenv("MIN_ID", 1))
-MAX_ID = int(os.getenv("MAX_ID", 150))
+MAX_ID = int(os.getenv("MAX_ID", 50))
 
 VIDEOS_RANGE = list(range(MIN_ID, MAX_ID + 1))
 
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "7678562257"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "8187419228"))
 
 #Port
 PORT = os.environ.get("PORT", "3435")
@@ -47,7 +47,7 @@ QR_PIC = os.environ.get("QR_PIC", "https://envs.sh/B7w.png")
 PICS = (os.environ.get("PICS", "https://envs.sh/4Iq.jpg https://envs.sh/4IW.jpg https://envs.sh/4IB.jpg https://envs.sh/4In.jpg")).split() #Required
 
 #set your Custom Caption here, Keep None for Disable Custom Caption
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>ʙʏ @Javpostr</b>")
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>ʙʏ @KL_PAID</b>")
 
 
 #Set true if you want Disable your Channel Posts Share button
@@ -63,7 +63,7 @@ PREMIUM_BUTTON2 = reply_markup=InlineKeyboardMarkup(
         [[InlineKeyboardButton("Remove Ads In One Click", callback_data="buy_prem")]]
 ) 
 
-OWNER_TAG = os.environ.get("OWNER_TAG", "rohit_1888")
+OWNER_TAG = os.environ.get("OWNER_TAG", "Boby_Vip")
 
 #UPI ID
 UPI_ID = os.environ.get("UPI_ID", "rohit23pnb@axl")
@@ -72,7 +72,7 @@ UPI_ID = os.environ.get("UPI_ID", "rohit23pnb@axl")
 UPI_IMAGE_URL = os.environ.get("UPI_IMAGE_URL", "https://t.me/paymentbot6/2")
 
 #SCREENSHOT URL of ADMIN for verification of payments
-SCREENSHOT_URL = os.environ.get("SCREENSHOT_URL", f"t.me/rohit_1888")
+SCREENSHOT_URL = os.environ.get("SCREENSHOT_URL", f"t.me/Boby_Vip")
 
 #Time and its price
 #7 Days

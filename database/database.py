@@ -4,7 +4,8 @@
 import time
 import pymongo, os
 import motor
-from config import DB_URI, DB_NAME
+from config import DB_URI, DB_NAME
+
 import logging
 from datetime import datetime, timedelta
 
@@ -288,7 +289,7 @@ class Rohit:
     async def get_channel_button_link(self):
         data = await self.channel_button_link_data.find_one({})
         if data:
-            return data.get('button_name'), data.get('button_link')
+            return data.get('button_name'KL_PAIDget('button_link')
         return ' Channel', 'https://t.me/Javpostr'
     
     async def get_channel_button_links(self):
@@ -298,7 +299,7 @@ class Rohit:
             return (
                 data.get('button_name'), data.get('button_link'),
                 data.get('button_name2'), data.get('button_link2')
-            )
+            )KL_PAID
         return ' Channel', 'https://t.me/Javpostr', None, None
 
 
