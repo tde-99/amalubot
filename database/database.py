@@ -299,8 +299,8 @@ class Rohit:
             return (
                 data.get('button_name'), data.get('button_link'),
                 data.get('button_name2'), data.get('button_link2')
-            )KL_PAID
-        return ' Channel', 'https://t.me/Javpostr', None, None
+            )
+        return ' Channel', 'https://t.me/KL_Paid', None, None
 
 
     # DELETE TIMER SETTINGS
@@ -898,5 +898,6 @@ class Rohit:
 db = Rohit(DB_URI, DB_NAME)
 
         
+
 
 
