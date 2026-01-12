@@ -173,14 +173,18 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             photo=QR_PIC,
             caption=(
                 f"👋 {query.from_user.username}\n\n"
-                f"🎖️ Available Plans :\n\n"
-                f"● {PRICE1}  For 0 Days Prime Membership\n\n"
-                f"● {PRICE2}  For 1 Month Prime Membership\n\n"
-                f"● {PRICE3}  For 3 Months Prime Membership\n\n"
-                f"● {PRICE4}  For 6 Months Prime Membership\n\n"
-                f"● {PRICE5}  For 1 Year Prime Membership\n\n\n"
+                f"🎖️ 𝗣𝗟𝗔𝗡 𝗗𝗘𝗧𝗔𝗜𝗟𝗦 :\n\n"
+                f"● 💋𝐔𝐍𝐋𝐈𝐌𝐈𝐓𝐄𝐃 𝐋𝐄𝐀𝐊𝐄𝐃🔞𝐂𝐋𝐈𝐏𝐒 𝐕𝐈𝐃𝐄𝐎𝐒 𝐒𝐀𝐋𝐄💋\n\n"
+                f"● 😋കഴപ്പൻ ലീക്കഡ്  തുണ്ട് ഫുൾ കളക്ഷൻ😍
+DAILY UPDATION😍💋💋
+#ALLCOLLECTIONS\n\n"
+                f"● 😍💋മല്ലു മുസ്ലിം സ്പെഷ്യൽ കളക്ഷൻസ്💥💦
+⭐️FOR SUBSCRIPTIONS🎖\n\n"
+                f"● 👤 @BOBY_VIP ✅\n\n"
+                f"● 👤 @BOBY_VIP ✅\n\n\n"
                 f"💵 MORE PLANS AVAILABE ASK @BOBY_VIP </code>\n\n\n"
-                f"💵 ASK UPI ID TO ADMIN AND PAY THERE -  <code>{UPI_ID}</code>\n\n\n"
+                f"😍Fake Group എടുത്ത് വെറുതെ പറ്റിക്കപ്പെടേണ്ട
+🤝\n\n\n"
                 f"♻️ After Payment You Will Get Instant Membership \n\n\n"
                 f"‼️ Must Send Screenshot after payment & If anyone want custom time membrship then ask admin"
             ),
